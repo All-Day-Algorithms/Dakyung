@@ -4,7 +4,9 @@ public class num1157 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int num, most=0,alpha =0;//리스트에 넣을 인덱스
+		int num, most=0;
+		int count=0,alpha =0, most_index=0;//리스트에 넣을 인덱스
+		boolean what =false;
 		//알파벳 리스트 생성
 		int[] list =new int[26]; //알파벳리스트
 		for(int k=0;k<26;k++) { //리스트 초기화
@@ -28,7 +30,21 @@ public class num1157 {
 				most=list[k];
 			}
 		}
-		System.out.println((char)(list[most]+65));
+		for(int k=0; k<26;k++) {
+			if(most == list[k]) {
+				count ++;
+				most_index=k;
+			}
+		}
+		
+		if(count >1) {
+			what = true;
+		}
+		if(what == true) {
+			System.out.println("?");
+		}else {
+			System.out.println((char)(most_index+65));
+		}
 	}
 }
 
